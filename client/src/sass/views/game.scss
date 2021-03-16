@@ -1,0 +1,73 @@
+.gameView { 
+
+    display: grid;
+
+    @include for-phone-only {
+        grid-template-columns: 100%;
+        grid-template-rows: 60% 40%;
+    }
+    @include for-tablet-portrait {
+        grid-template-columns: 60% auto;
+        grid-template-rows: 60% auto;
+    }
+    @include for-tablet-landscape {
+        grid-template-columns: 22% 22% 22% auto;
+        grid-template-rows: 10% 20% 20% 10% auto;
+    }
+    @include for-desktop  {
+        
+    }
+    @include for-big-desktop {
+        
+    }
+
+    &__info{
+        @include for-phone-only {
+            display: none
+        }
+        @include for-tablet-portrait {
+            grid-column-start: 1;
+            grid-column-end: 4;
+        }
+    }
+
+    &__card-container {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-template-columns: 33% 33% 33%;
+        grid-template-rows: 33% 33% 33%;
+        display: grid;
+
+    }
+
+    &__joueurs {
+        @include for-phone-only {
+            display: none
+        }
+        @include for-tablet-portrait {
+            grid-template-columns: 60% auto;
+            grid-template-rows: 60% auto;
+        }
+        @include for-tablet-landscape {
+            grid-template-columns: 22% 22% 22% auto;
+            grid-template-rows: 10% 20% 20% 10% auto;
+        }
+    }
+
+    &__chat {
+
+    }
+
+    &__jetons {
+
+    }
+
+    &__param {
+
+    }
+
+    &__indices {
+
+    }
+
+}

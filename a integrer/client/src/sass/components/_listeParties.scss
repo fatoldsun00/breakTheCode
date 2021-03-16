@@ -1,0 +1,33 @@
+.gamesList {
+ 
+  padding: 0 3rem;
+  &__element {
+    margin: 0 auto;
+  }
+
+  &__started{
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    &--true{
+      background-color: red;
+    }
+    &--false{
+      background-color: green;
+    }
+  }
+  
+  &__container{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+    margin: 1rem 0;
+
+    &--entete{
+      background: $coul4;    
+      padding: 1rem 0;
+    }
+  
+  }
+
+}

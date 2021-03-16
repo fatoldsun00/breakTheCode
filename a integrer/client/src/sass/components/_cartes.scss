@@ -1,0 +1,36 @@
+// Please change your favorite font-size!
+$fontSize: 4rem;
+$largeur: 300px;
+$hauteur: 150px;
+$container-largeur: 600px;
+
+.card {
+  width: $largeur;
+  padding: 1rem 0;
+  font-size: 1.2em;
+
+  &--display {
+    height: $hauteur;
+    transform: translateX(100vh-#{$largeur} / 2);
+    transform: translateY(#{$hauteur} / 2 - #{$hauteur});
+    border: 5px solid $coul5;
+    border-radius: 10px;
+    background: $coul4;
+  }
+  
+  &:hover {
+    cursor: pointer;
+  }
+  
+  &__body {
+    //border:5px solid black;
+    border: none;
+    border-bottom: 1px dashed $coul5;
+    height:auto;
+    margin-top:0;
+    overflow: hidden;
+    transition: all 0.4s;
+    text-align: center;
+   
+  }
+}

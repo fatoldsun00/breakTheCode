@@ -1,0 +1,56 @@
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+export default new Vuex.Store({
+    state: {
+        name: undefined,
+        ws: undefined,
+        wsMessage: undefined,
+    }, 
+    getters: {
+        getName: (state) => state.ws,
+        getWs: (state) => state.ws,
+        getWSMessage: (state) => state.wsMessage,
+    },
+    /* eslint-disable no-console */
+    mutations: {
+        setName: (state,name) => {
+            state.name = name
+        },
+        setWs: (state,ws) => {
+            state.ws = ws
+            state.ws.onopen = () => {
+              state.ws.onmessage = ({data}) => {
+                if (data.err){
+                  console.log("(TODO toaster) Erreur ws : ",data)
+                } else {  
+                  console.log("(TODO router) Message ws : ",data)
+                  console.log(data)
+                  state.wsMessage = data
+                  /* if (rep.action) {
+                    if (rep.action.started) {
+                      this.joueurs = rep.joueurs
+                      this.cartes = rep.cartes
+                    }
+                    if (rep.action.pickupCard) {
+                      console.log(this.cartes.filter(carte => carte.label == rep.action.pickupCard)[0]+" avant")
+                      this.cartes.filter(carte => carte.label == rep.action.pickupCard)[0].reponse = rep.reponse
+                      console.log(this.cartes.filter(carte => carte.label == rep.action.pickupCard)[0])
+                    }
+                  } */
+                }
+              }
+            }
+        },
+    },
+    actions: {
+        COWS: async ({ state, commit }) => {
+            //TODO var env
+            if (state.ws != undefined) state.ws.close()
+            const ws = await new WebSocket('ws://localhost:8090/game')
+            commit('setWs',ws)
+        },
+    }
+})
+

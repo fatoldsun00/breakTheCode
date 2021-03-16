@@ -1,0 +1,50 @@
+const {userCtrl} = require('./userController')
+const {gameCtrl} = require('./gameController')
+
+const routerCtrl = ((ws,req,d) => {
+    const router = (ws,req,data) => {
+        try {
+            //Route
+            let toSend
+            let josnData = toJSON(data)
+            switch (josnData.action) {
+                case 'getUser':
+                    toSend = userCtrl.getUser(josnData.name)
+                    break
+                case 'game':
+                    toSend = gameCtrl[josnData.action]
+                    break
+            }
+        send(toSend)
+        } catch (err) {
+            throw err
+        }    
+    }
+
+    /**********************************************  Private method  ******************************************/
+    const toJSON = (d) => {
+        try {
+            let data = JSON.parse(d)
+            if (!data.action) throw 'Données invalide'
+            return data
+        } catch (err) {
+            throw err
+        }
+    }
+
+    const send = (d) => {
+        let t = 'rr'
+        if (d instanceof String) {
+
+        }
+    }
+
+    return {
+     router   
+    }
+})()
+
+module.exports = {
+    routerCtrl
+}
+

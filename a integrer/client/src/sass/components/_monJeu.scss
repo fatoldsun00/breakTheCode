@@ -1,0 +1,19 @@
+.monJeu {
+       
+    &__chiffres {
+        display : flex  
+    }
+    &__chiffre {
+        border: 1px solid transparent;
+        &--blanc{
+            border-color : white
+        }    
+        &--noir{
+            border-color : black
+        }  
+        &--vert{
+            border-color : green
+        }  
+    }
+
+}

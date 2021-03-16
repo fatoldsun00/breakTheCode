@@ -1,0 +1,37 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 62.5%; // 1rem = 10px, 10px/16px = 62.5%
+	overflow: hidden;
+}
+
+body {
+	/*padding: 3rem;*/
+	/*border: 1px solid blue;*/
+
+	font-family: "Lato", sans-serif;
+	font-weight: 400;
+	line-height: 1.7;
+
+	background-color: $coul1;
+	color: $coul2;
+
+	
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+}

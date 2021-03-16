@@ -1,0 +1,29 @@
+.icon {
+    width: 5rem;
+    height: 5rem;
+    background-size: cover;
+    background-position: center;
+    background-color: transparent;
+
+    border:none;
+
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+
+
+
+    &--valider{
+        background:  no-repeat center/50% url("../assets/checkmark.svg"), no-repeat center/100% url("../assets/bg_btn.svg");      
+        background-color: green, transparent;  
+    }
+    &--annuler{
+        background-image: url("../assets/close.svg");
+    }
+    &--precedent{
+        background-image: url("../assets/cheveron-left.svg");
+    }
+    &--suivant{
+        background-image: url("../assets/cheveron-right.svg");
+    }
+}

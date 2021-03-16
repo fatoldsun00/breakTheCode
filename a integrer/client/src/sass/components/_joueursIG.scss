@@ -1,0 +1,20 @@
+.joueurIG {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid $coul4;
+    border-bottom: 1px solid $coul4;
+    cursor: pointer;
+
+    &__joueur {
+        border-left: 1px solid $coul4;
+        border-right: 1px solid $coul4;
+        flex: 1 1 auto;
+        text-align: center;
+        align-self: center;
+        padding: 1rem 0;
+        &--leader{
+            color:red;
+        }
+    }
+
+}

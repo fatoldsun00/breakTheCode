@@ -1,0 +1,59 @@
+input[type=submit],
+input[type=text],
+input[type=email],
+textarea,
+label
+{
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 16px;
+	color: $coul2;
+
+}
+label {
+	display:block;
+	margin-bottom: 10px;
+}
+
+input[type=text],
+input[type=email] 
+{
+	background: transparent;
+	border: none;
+	border-bottom: 1px dashed $coul5;
+	width: 275px;
+	outline: none;
+	padding: 0px 1rem;
+	font-style: italic;
+}
+textarea{
+	font-style: italic;
+	padding: 0px 1rem;
+	background: transparent;
+	outline: none;
+	border: none;
+	border-bottom: 1px dashed $coul5;
+	width: 275px;
+	overflow: hidden;
+	resize:none;
+	height:50px;
+}
+
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=email] :focus
+{
+	border-bottom: 1px dashed $coul2;
+}
+
+input[type=submit]{
+	background: $coul5;
+	border: none;
+	padding: 8px 10px 8px 10px;
+	border-radius: 5px;
+	color: $coul3;
+}
+input[type=submit]:hover{
+    background: $coul2;
+    cursor: pointer;
+}

@@ -1,0 +1,11 @@
+const app = require('express')
+const frontRouter = app.Router()
+
+// Routes
+const connectionRoutes = require('./userRoutes')
+const userRoutes = require('./userRoutes')
+
+//Montage des routes
+frontRouter.use('/user', usersRoutes)
+
+module.exports = frontRouter

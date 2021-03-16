@@ -1,0 +1,7 @@
+.gamesList {
+    &__element {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}

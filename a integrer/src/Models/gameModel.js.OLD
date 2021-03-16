@@ -1,0 +1,104 @@
+const AppError = require('../Services/AppError')
+
+let games = []
+
+const Games = (() => {
+
+  const getGames = () => {
+    return games
+  }
+
+  const getGame = (id) => {
+    return games.filter((game) => game.idGame==id)[0]
+  }
+
+  const addGame = (game) => {
+    games.push(game)
+  }
+
+  const updateGame = (id) => {
+    throw new AppError('500','TODO updateGame')
+    return games
+  }
+
+  const deleteGame = (id) => {
+    for (k in games) {
+      games[k].id == id
+      games.splice(k,1)
+    }
+  }
+
+  
+  const addPlayer = (igGame,player) =>{
+
+  }
+
+  const deletePlayer = (igGame,player) =>{
+
+  }
+
+/*
+  const listGames = () => {
+    return games
+  }
+  
+  const gameInfo = (id) => {
+    return games.filter((game) => game.id==id)[0]
+  }
+
+  const joinGame = ( id,ws,name ) => {
+    try {
+      let game
+      for (k in games) {
+        if (games[k].id == id) {
+          indexG = k
+          game = games[k]
+        }
+      }
+
+      if (Object.keys(game.joueurs).length >= game.nbrJoueurs) throw new AppError(401,'ERR_GAME_JOIN_FULL')
+
+      game.joueurs[name]={...game.joueurs[name],ws}
+      game.nbrJoueursIG++
+      //games[indexG].joueurs.push(ws)
+  
+    }
+    catch(err) {
+      throw err
+    }
+  }
+
+  const todoGame = ( id,ws ) => {
+    try {
+      let kGame
+    for(k in games) {
+      if (games[k].id==id) {
+        kGame=k
+        break
+      }
+    }
+  
+
+    if (games[kGame].joueurs.length == games[kGame].nbrJoueursIG) throw new AppError(401,'ERR_GAME_JOIN_FULL')
+
+    games[kGame].joueurs.push(ws)
+    games[kGame].nbrJoueursIG++
+
+    } catch (err) {
+      throw err
+    }
+  }
+*/
+  return {
+    getGames,
+    getGame,
+    addGame,
+    updateGame,
+    deleteGame,
+
+  }
+})()
+
+module.exports = {
+  Games
+};

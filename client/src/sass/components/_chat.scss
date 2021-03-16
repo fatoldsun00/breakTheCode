@@ -1,0 +1,16 @@
+.chat {
+    min-width: 300px;
+    border: 1px solid black;
+
+    &__messages {
+        min-height: 50px;
+        height: auto;
+    }
+    &__toSend {
+        
+    }
+    &__send {
+        
+    }
+
+}

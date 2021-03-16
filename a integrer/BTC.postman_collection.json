@@ -1,0 +1,224 @@
+{
+	"info": {
+		"_postman_id": "d5b850e2-73f2-4d2f-94e8-14ee7fc36755",
+		"name": "BTC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"j\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7890/api/user/",
+					"host": [
+						"localhost"
+					],
+					"port": "7890",
+					"path": [
+						"api",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getGs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7890/api/game/",
+					"host": [
+						"localhost"
+					],
+					"port": "7890",
+					"path": [
+						"api",
+						"game",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "newG",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fc4b2ae2-d409-4357-b58d-5f5e5ead59d9",
+						"exec": [
+							"responseBody",
+							"postman.setEnvironmentVariable(\"idG\", responseBody);",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"idG\", jsonData);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nbrJoueurs\":2,\n\"nbrBots\":0}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7890/api/game/",
+					"host": [
+						"localhost"
+					],
+					"port": "7890",
+					"path": [
+						"api",
+						"game",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "joinG",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:7890/api/game/join/{{idG}}",
+					"host": [
+						"localhost"
+					],
+					"port": "7890",
+					"path": [
+						"api",
+						"game",
+						"join",
+						"{{idG}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "startG",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:7890/api/game/start/eonqghcvm",
+					"host": [
+						"localhost"
+					],
+					"port": "7890",
+					"path": [
+						"api",
+						"game",
+						"start",
+						"eonqghcvm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pickC",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:7890/api/game/pickupCard/{{idG}}/5",
+					"host": [
+						"localhost"
+					],
+					"port": "7890",
+					"path": [
+						"api",
+						"game",
+						"pickupCard",
+						"{{idG}}",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:7890/api/game/pickupCard/{{idG}}/5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7890/api/game/pickupCard/{{idG}}/5",
+					"host": [
+						"localhost"
+					],
+					"port": "7890",
+					"path": [
+						"api",
+						"game",
+						"pickupCard",
+						"{{idG}}",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:7890/api/user/me",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7890/api/user/me",
+					"host": [
+						"localhost"
+					],
+					"port": "7890",
+					"path": [
+						"api",
+						"user",
+						"me"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

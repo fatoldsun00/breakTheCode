@@ -1,0 +1,30 @@
+const AppError = require('../Services/AppError')
+
+let users = []
+
+const Users = (() => {
+
+  const addUser = (name) => {
+    try{
+      //TODO Revoir
+      if (users.filter((user)=>user.name == name).length) throw new AppError(401,'ERR_USER_ADD_NAME_ALREADY_TAKE')
+      users.push({name})
+    } catch (err) {
+      throw err
+    }
+  
+  }
+
+  const listUsers = () => 
+  {
+    return users
+  }
+  return {
+    addUser,
+    listUsers
+  }
+})()
+
+module.exports = {
+  Users
+};

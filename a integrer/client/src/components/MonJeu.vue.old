@@ -1,0 +1,86 @@
+<template>
+  <div>
+    <input placeholder="name" v-model="name" />
+    <button @click="login">ok</button>
+    <button @click="createGame">creer partie</button>
+    <div v-for="(game,index) in games" :key="index">
+      {{game}} <button @click="joinGame(game.id)">joindre</button>
+    </div>
+
+    <div class="monJeu">
+      <div class="monJeu__chiffres">
+        <div v-for="(chiffre,index) in monJeu" class="monJeu__chiffre" :class="'monJeu__chiffre--'+chiffre.coul" :key="index">
+          {{chiffre.val}}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+
+import {HTTP} from '@/axios-wrapper'
+
+export default {
+  name: 'MonJeu',
+  data: function () {
+    return {
+      //monJeu: this.$store.state.joueurs.joueur1,
+      monJeu:[],
+      name: undefined,
+      games: []
+    }
+  },
+
+  props: {
+
+  },
+  methods: {
+    async login(){
+      let {data} = await HTTP.post('/user',{name:this.name})
+      /* eslint-disable no-console */
+      console.log(data)
+    },
+    async createGame(){
+      let {data} = await HTTP.post('/game',{nbrjoueurs:1,nbrBot:1})
+      /* eslint-disable no-console */
+      console.log(data)
+      this.listGame()
+      //co ws
+      let ws = new WebSocket('ws://localhost:8090/game')
+      ws.onopen = function () {
+         ws.send(JSON.stringify({
+          action: 'join',
+          id:data.id
+        }))
+      };
+     
+     
+    },
+    async listGame(){
+      let {data} = await HTTP.get('http://localhost:7890/api/game')
+      this.games = data
+    },
+    async joinGame(id){
+      let {data} = await HTTP.get('http://localhost:7890/api/game')
+      this.games = data
+      let ws = new WebSocket('ws://localhost:8090/game')
+      ws.onopen = function () {
+         ws.send(JSON.stringify({
+          action: 'join',
+          id:id
+        }))
+      };
+
+      ws.onmessage = function (data) {
+         let rep = JSON.parse({data})
+         console.log(rep)
+      }
+    }
+  },
+  created(){
+    //this.listGame()
+  }
+
+}
+</script>

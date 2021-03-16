@@ -1,0 +1,17 @@
+.login {
+    display: flex; // make us of Flexbox
+    align-items: center; // does vertically center the desired content
+    justify-content: center; // horizontally centers single line items
+    text-align: center; // optional, but helps horizontally center text that breaks into multiple lines
+    height: 100vh;
+    &__wrapper {
+        
+    }
+    &__name {
+        margin : 0 1rem;
+        width: 20px
+    }
+    &__animationCode{
+        margin-bottom:5rem;
+    }
+}

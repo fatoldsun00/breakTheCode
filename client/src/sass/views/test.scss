@@ -1,0 +1,60 @@
+.exemple {
+    /*&__figue{
+        background: #A79C93;
+        background: #03353E;
+        background: #0294A5;
+        background: #A79C93;
+        background: #C1403D;
+
+        color: #A79C93;
+        color: #03353E;
+        color: #0294A5;
+        color: #A79C93;
+        color: #C1403D;
+        width: 100%;
+        height: 400px;
+
+    }*/
+    &__pelican{
+        width: 100%;
+        height: 400px;
+        background: #F1F3F2;
+
+        /*background: #C2D3DA;
+        background: #81A3A7;
+        background: #585A56;
+        background: #272424;*/
+
+        /*color: #C2D3DA;
+        color: #81A3A7;
+        color: #585A56;
+        color: #F1F3F2;*/
+        color: #272424;
+    }
+
+    &__box {
+        display: inline-block;
+        margin-left: 20px;
+        width: 100px;
+        height: 100px;
+        border: 5px solid #C2D3DA;
+        border: 5px solid #81A3A7;
+        border: 5px solid #585A56;
+        border: 5px solid #272424;
+        border-radius: 8px;
+
+        &--coul1{
+            background: #C2D3DA;
+        }
+        &--coul2{
+            background: #81A3A7;
+        }
+        &--coul3{
+            background: #585A56;
+        }
+        &--coul4{
+            background: #272424;
+        }
+    }
+    
+}

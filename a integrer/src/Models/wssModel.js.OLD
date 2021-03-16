@@ -1,0 +1,23 @@
+const AppError = require('../Services/AppError')
+
+let sockets = []
+
+const Wss = (() => {
+
+  const AddWss = (name) => {
+    try{
+      sockets.push({name})
+    } catch (err) {
+      throw err
+    }
+  
+  }
+
+  return {
+    AddWss
+  }
+})()
+
+module.exports = {
+  Wss
+};
